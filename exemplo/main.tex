@@ -1,0 +1,81 @@
+% arara: lualatex
+% arara: lualatex
+% arara: lualatex if found('log', 'undefined references')
+
+%% arara: clean: { extensions: [aux, log, out, pdf, toc] }
+
+% classe do documento ======================================================
+\documentclass[12pt]{../libellum}
+
+\usepackage{mwe}
+
+\title{
+  \sffamily \bfseries
+  NOTAS DE AULA \\
+  (\textit{libellum})
+}
+\author{
+  \sffamily
+  Ícaro Vidal Freire
+}
+\date{
+  \sffamily 
+  2023
+}
+
+% início do documento ======================================================
+\begin{document} 
+%------------------------------------------------------------------------->>
+  \maketitle
+  \sumario
+%
+  \blinddocument
+%
+  \blindtext \marginpar{%
+    \footnotesize 
+    Esta é uma pequena margem. 
+    Mas, não é uma margem qualquer: ela é na vertical e numa 
+    \textsf{
+      proporção auréa.
+    }
+  }
+  
+  \chapter{Testes Gerais}
+  \lettrine[lines=3]{\initial\color{azulUFRB} L}{orem ipsum} dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
+
+  \textbs{Palavras em Negrito e Sem Serifa}
+
+  \textis{Palavras em Itálico sem Serifas}
+
+  \begin{teorema}
+    Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
+    \[
+      f(z_0) = \frac{1}{2 \pi i} \oint_{\Gamma} \frac{f(z)}{z - z_0} \mathrm{d} z
+    \]
+  \end{teorema}
+  
+  Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
+  \section{Corolários}
+
+  \begin{cor}
+    Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
+  \end{cor}
+
+  Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
+
+  \begin{teorema}[(de Cauchy)]    Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
+  \end{teorema}
+
+  \begin{definicao}
+    Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
+  \end{definicao}
+
+  Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
+
+  Acesse o \link{https://www.latex-project.org/}{Projeto \LaTeX} ou 
+  \begin{center}
+    \linkurl{https://www.latex-project.org/}
+  \end{center}
+%-------------------------------------------------------------------------<<
+\end{document}
+%===========================================================================
