@@ -49,14 +49,96 @@
 \RequirePackage{amsmath, amssymb, amsthm} %---------------> pacotes da AmS
 \RequirePackage{mathtools} %------------------> melhoras do pacote amsmath
 
+% desenho, caixas & cia --------------------------------------------------
+\RequirePackage{tcolorbox}
+  \tcbuselibrary{skins}
+  \usetikzlibrary{shadings}
+
 % seleção de cores -------------------------------------------------------
 \RequirePackage{xcolor}
   \definecolor{douradoUFRB}{rgb}{0.929411765, 0.603921569, 0.066666667} 
   \definecolor{azulUFRB}{rgb}{0.160784314, 0.08627451, 0.435294118}
 
+% seções, títulos & cia --------------------------------------------------
+\RequirePackage{sectsty}
+  \allsectionsfont{\sffamily\color{azulUFRB}}
+
+% hyperlinks e metadados -------------------------------------------------
+\usepackage{hyperref}
+  \hypersetup
+  {
+    colorlinks   = true,
+    allcolors    = douradoUFRB,
+    linktoc      = all,
+    pdfnewwindow = true,
+    pdfproducer  = {LuaTeX},
+    pdfcreator   = {LaTeX2e com neovim e arara}, 
+  }
+
+% icones e ardornos ------------------------------------------------------
+\RequirePackage{emoji}
+
+% listas, tabelas e figuras ----------------------------------------------
+\RequirePackage{enumitem}
+  \setlist[itemize]{format=\textcolor{azulUFRB}}
+  \setlist[description]{format=\textcolor{azulUFRB}}
+
 % 3. CONFIGURAÇÕES DAS ESTRUTURAS ==========================================
 
+% ambiente para teoremas -------------------------------------------------
+\tcbset{
+  base/.style={
+    empty,
+    frame engine=path,
+    colframe=azulUFRB!5,
+    sharp corners,
+    attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+    boxed title style={size=minimal, top=4pt, left=4pt},
+    coltitle=douradoUFRB,fonttitle=\bfseries\sffamily,
+  }
+}
+
+\newtcolorbox[auto counter, number within=section]{teorema}[1][]{%
+  base,
+  drop fuzzy shadow,
+  borderline west={3pt}{-3pt}{douradoUFRB},
+  title={Teorema~\thetcbcounter~#1}
+}
+
+% outros ambientes matemáticos -------------------------------------------
+\theoremstyle{definition}
+  \newtheorem{lema}{% 
+    \color{azulUFRB} \sffamily Lema
+  }[section]
+  \newtheorem{prop}{% 
+    \color{azulUFRB} \sffamily Proposição
+  }[section]
+  \newtheorem{cor}{%
+    \color{azulUFRB} \sffamily Corollary
+  }[section]
+  \newtheorem{definicao}{%
+    \color{azulUFRB} \sffamily Definição
+  }[section]
+
+% novo comando para sumário ----------------------------------------------
+\newcommand{\sumario}{%
+  \textsf{ \tableofcontents }
+}
+
 % 4. NOVOS COMANDOs ========================================================
+
+% linkurl{}{} ------------------------------------------------------------
+\newcommand{\linkurl}[1]{%
+  \href{#1}{\color{douradoUFRB}\sffamily\bfseries #1}
+}
+
+% link em negrito --------------------------------------------------------
+\newcommand{\link}[2]{%
+  \href{#1}{% 
+    {\footnotesize\emoji{link}}~\textcolor{douradoUFRB}{%
+      \textbf{\textsf{#2}}}}\!\!
+}
+
 % negrito sem serifa -----------------------------------------------------
 \newcommand{\textbs}[1]{%
   \textsf{ \textbf{ \textcolor{azulUFRB}{ #1 } } }
@@ -73,6 +155,13 @@
 %     (2023-02-18)  ::  Essa classe foi concebida para escrita de futuras  %
 %                       notas de aula ou pequenos textos, ambos com ferra- %
 %                       mentas para Matemática.                            %
+%                       * Mudança de cor em listas                         %
+%                       * Novos comandos: \link{}{} e \linkurl{}           %
+%                       * Hyperlinks e metadados básicos e                 %
+%                       * Novo comando para sumário (sem sefira)           %
+%                       * Capítulos e seções sem serifa e em azulUFRB      %
+%                       * Outros ambientes matemáticos definidos           %
+%                       * Assentado ambiente para Teoremas                 %
 %                       * Pacotes para expressões Matemáticas gerais       %
 %                         - amsmath, amssym e amsthm                       %
 %                         - mathtools                                      %
@@ -83,14 +172,3 @@
 %                         - FiraMono Nerd Font : fonte monoespaçada        %
 %                         - Royal Initialen    : fonte para letra capital  %
 %==========================================================================%
-
-
-
-
-
-
-
-
-
-
-
