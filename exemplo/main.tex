@@ -1,5 +1,5 @@
 % arara: lualatex
-% arara: lualatex
+%% arara: lualatex
 % arara: lualatex if found('log', 'undefined references')
 
 %% arara: clean: { extensions: [aux, log, out, pdf, toc] }
@@ -9,24 +9,18 @@
 
 \usepackage{mwe}
 
-\title{
-  \sffamily \bfseries
-  NOTAS DE AULA \\
-  (\textit{libellum})
+\newcommand{\tituloProv}{%
+  Variável Complexa
 }
-\author{
-  \sffamily
-  Ícaro Vidal Freire
-}
-\date{
-  \sffamily 
-  2023
-}
+\newcommand{\autorProv}{Ícaro Vidal Freire}
+\newcommand{\tipo}{notas de aula}
 
 % início do documento ======================================================
 \begin{document} 
 %------------------------------------------------------------------------->>
-  \maketitle
+%
+  \capa{1.2}{montanha}
+%
   \sumario
 %
   \blinddocument
@@ -42,6 +36,14 @@
   \chapter{Testes Gerais}
    \lettrine[lines=3]{\initial\color{azulUFRB} L}{orem ipsum} dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
 
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{img/montanha}
+  \caption{Linda imagem!}
+  \label{fig:montanha}
+\end{figure}
+
+Seria real a imagem da Figura~\ref{fig:montanha}?
 \textbs{Palavras em Negrito e Sem Serifa}
 
 \textis{Palavras em Itálico sem Serifas}
