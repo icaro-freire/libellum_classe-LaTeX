@@ -25,7 +25,7 @@
 
 % 1. IDENTIFICAÇÕES INTERNAS ===============================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{libellum}[2023/02/18 v.0.1.0 
+\ProvidesClass{libellum}[2023/02/18 v0.1.0 
   'Classe para confecção de pequenos textos, como notas de aula'
 ]
 \LoadClass[12pt]{book}
@@ -45,6 +45,18 @@
 % traduções/idioma/hifenação ---------------------------------------------
 \RequirePackage[brazilian]{babel} 
 
+% margens ----------------------------------------------------------------
+\RequirePackage{geometry}
+  \geometry{%
+    %showframe,
+    a4paper, 
+    top    = 5.672cm,
+    bottom = 5.672cm,
+    left   = 1.532cm,
+    right  = 6.489cm,
+    marginparwidth = 4.957cm
+  }
+
 % matemática geral -------------------------------------------------------
 \RequirePackage{amsmath, amssymb, amsthm} %---------------> pacotes da AmS
 \RequirePackage{mathtools} %------------------> melhoras do pacote amsmath
@@ -53,6 +65,8 @@
 \RequirePackage{tcolorbox}
   \tcbuselibrary{skins}
   \usetikzlibrary{shadings}
+\RequirePackage{tikz}
+  \definecolor[named]{color01}{rgb}{0.160784314, 0.08627451, 0.435294118}
 
 % seleção de cores -------------------------------------------------------
 \RequirePackage{xcolor}
@@ -72,18 +86,60 @@
     linktoc      = all,
     pdfnewwindow = true,
     pdfproducer  = {LuaTeX},
-    pdfcreator   = {LaTeX2e com neovim e arara}, 
+    pdfcreator   = {LaTeX2e}, 
   }
 
 % icones e ardornos ------------------------------------------------------
 \RequirePackage{emoji}
 
 % listas, tabelas e figuras ----------------------------------------------
+% listas
 \RequirePackage{enumitem}
   \setlist[itemize]{format=\textcolor{azulUFRB}}
   \setlist[description]{format=\textcolor{azulUFRB}}
 
+% tabelas
+\RequirePackage{tabularray}
+
+% figuras 
+\RequirePackage{graphicx}
+  \graphicspath{{./figs}{./figs/img}}
+\RequirePackage{caption}
+  \captionsetup{
+    labelfont = {bf, sf, color=azulUFRB}, 
+    font      = {small, sf}
+  }
+
+% pano de fundo ----------------------------------------------------------
+\RequirePackage{wallpaper}
+
 % 3. CONFIGURAÇÕES DAS ESTRUTURAS ==========================================
+% comando para capa ------------------------------------------------------
+\newcommand{\capa}[2]{%
+  \thispagestyle{empty}
+  \ThisCenterWallPaper{#1}{#2}
+  %
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[
+      rectangle, rounded corners, fill=douradoUFRB!5, opacity=0.75, 
+      anchor=south west, minimum width=4.957cm, minimum height=7.01cm
+    ] (box) at (0,-15) (box){};
+    \node[
+      anchor=west, color01, xshift=-2cm, yshift=-0.4cm, text width=3.9cm, 
+      font=\small\scshape\bfseries
+    ] at (box.north){\tipo};
+    \node[
+      anchor=west, color01, xshift=-2cm, yshift=-3cm, text width=3.9cm, 
+      font=\sffamily\bfseries\Large
+    ] at (box.north){\tituloProv};
+    \node[
+      anchor=west, color01, xshift=-2cm, yshift=-6.3cm, text width=3.9cm, 
+      font=\sffamily\bfseries
+    ] at (box.north){\autorProv};
+  \end{tikzpicture}
+  %
+  \newpage
+}
 
 % ambiente para teoremas -------------------------------------------------
 \tcbset{
@@ -152,6 +208,12 @@
 %==========================================================================%
 % HISTÓRICO DA CLASSE                                                      %
 %==========================================================================%
+%     (2023-02-19)  ::  Resolvendo problemas na capa e margens             %
+%                       * comando provisório para capa \capa{}{}, com dois %
+%                         argumentos: proporção e figura                   %
+%                       * margem com proporção áurea em diversos itens:    % 
+%                         comprimento, largura e margem vertical           %
+%--------------------------------------------------------------------------%
 %     (2023-02-18)  ::  Essa classe foi concebida para escrita de futuras  %
 %                       notas de aula ou pequenos textos, ambos com ferra- %
 %                       mentas para Matemática.                            %
