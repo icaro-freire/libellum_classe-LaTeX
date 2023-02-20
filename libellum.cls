@@ -115,7 +115,13 @@
 
 % 3. CONFIGURAÇÕES DAS ESTRUTURAS ==========================================
 % comando para capa ------------------------------------------------------
+  % definições de variáveis para título (\titulo{}), autor (\autor{}) e 
+  % tipo do documento (\tipo{})
+  \def\titulo#1{\gdef\@titulo{#1}}
+  \def\autor#1{\gdef\@autor{#1}}
+  \def\tipo#1{\gdef\@tipo{#1}}
 \newcommand{\capa}[2]{%
+  %
   \thispagestyle{empty}
   \ThisCenterWallPaper{#1}{#2}
   %
@@ -127,15 +133,15 @@
     \node[
       anchor=west, color01, xshift=-2cm, yshift=-0.4cm, text width=3.9cm, 
       font=\small\scshape\bfseries
-    ] at (box.north){\tipo};
+    ] at (box.north){\@tipo};
     \node[
       anchor=west, color01, xshift=-2cm, yshift=-3cm, text width=3.9cm, 
       font=\sffamily\bfseries\Large
-    ] at (box.north){\tituloProv};
+    ] at (box.north){\@titulo};
     \node[
       anchor=west, color01, xshift=-2cm, yshift=-6.3cm, text width=3.9cm, 
       font=\sffamily\bfseries
-    ] at (box.north){\autorProv};
+    ] at (box.north){\@autor};
   \end{tikzpicture}
   %
   \newpage
@@ -209,6 +215,10 @@
 % HISTÓRICO DA CLASSE                                                      %
 %==========================================================================%
 %     (2023-02-19)  ::  Resolvendo problemas na capa e margens             %
+%                       * comandos para capa concluídos                    %
+%                         - são 5 tipos de imagens disponíveis: escada;    %
+%                           gotas; gravidade; livros ou montanha           %
+%                         - \titulo{}, \author{} e \tipo{} comandos prontos%
 %                       * comando provisório para capa \capa{}{}, com dois %
 %                         argumentos: proporção e figura                   %
 %                       * margem com proporção áurea em diversos itens:    % 
