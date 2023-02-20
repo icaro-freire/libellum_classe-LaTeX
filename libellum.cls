@@ -113,6 +113,9 @@
 % pano de fundo ----------------------------------------------------------
 \RequirePackage{wallpaper}
 
+% para notas nas margens verticais ---------------------------------------
+\RequirePackage{marginnote}
+
 % 3. CONFIGURAÇÕES DAS ESTRUTURAS ==========================================
 % comando para capa ------------------------------------------------------
   % definições de variáveis para título (\titulo{}), autor (\autor{}) e 
@@ -218,8 +221,35 @@
   \part{#1}
   \restoregeometry
 }
-  
+
+% \nota{} ----------------------------------------------------------------
+\newcounter{mynote}%~\thetcbcounter
+\newtcolorbox[use counter=mynote]
+  {mynote}[1][]
+  {title=Saiba Mais!,
+   width=5cm,
+   left=0pt,
+   right=0pt,
+   fonttitle=\bfseries\sffamily\color{azulUFRB},
+   colframe=douradoUFRB,
+   colback=douradoUFRB!34,
+   #1
+}    
+
+\newcommand\nota[2][]{%
+  \marginnote[\footnotesize #1]{%
+    \makebox[0pt][l]{%
+      \begin{mynote}%[label=#3]
+        \footnotesize #2
+      \end{mynote}}
+  }%
+}
+ 
 % testes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\RequirePackage{sidenotes}
+
+
 
   % comando para colorir única página
   % \usepackage{pagecolor,afterpage}
@@ -236,6 +266,7 @@
 %                       apenas a página do nome PARTE I; mas, pela estru-  %
 %                       tura do comando original, a página anterior e a    %
 %                       posterior acabam sendo coloridas.                  %
+%                       * \nota{}, para informações curiosas, etc.         %
 %                       * \parte{}, com mudança na margem                  %
 %                                                                          %
 %--------------------------------------------------------------------------%
