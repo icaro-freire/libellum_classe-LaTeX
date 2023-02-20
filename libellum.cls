@@ -210,10 +210,35 @@
   \textsf{ \textit{ #1 } }
 }
 
+% \parte{}, com mudança nas margens --------------------------------------
+\newcommand{\parte}[1]{%
+  \newgeometry{%
+    a4paper, left=1.532cm, right=1.532cm, top=5.672cm, bottom=5.672cm
+  }
+  \part{#1}
+  \restoregeometry
+}
+  
+% testes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  % comando para colorir única página
+  % \usepackage{pagecolor,afterpage}
+  % \newpagecolor{douradoUFRB}
+  %   texto
+  % \restorepagecolor
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %==========================================================================%
 % HISTÓRICO DA CLASSE                                                      %
 %==========================================================================%
+%     (2023-02-20)  ::  Tentando criar uma configuração para \part{}.      %
+%                       Ainda não estou satisfeito, pois queria colorir    %
+%                       apenas a página do nome PARTE I; mas, pela estru-  %
+%                       tura do comando original, a página anterior e a    %
+%                       posterior acabam sendo coloridas.                  %
+%                       * \parte{}, com mudança na margem                  %
+%                                                                          %
+%--------------------------------------------------------------------------%
 %     (2023-02-19)  ::  Resolvendo problemas na capa e margens             %
 %                       * comandos para capa concluídos                    %
 %                         - são 5 tipos de imagens disponíveis: escada;    %
@@ -223,6 +248,7 @@
 %                         argumentos: proporção e figura                   %
 %                       * margem com proporção áurea em diversos itens:    % 
 %                         comprimento, largura e margem vertical           %
+%                                                                          %
 %--------------------------------------------------------------------------%
 %     (2023-02-18)  ::  Essa classe foi concebida para escrita de futuras  %
 %                       notas de aula ou pequenos textos, ambos com ferra- %
