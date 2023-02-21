@@ -7,24 +7,31 @@
 % classe do documento ======================================================
 \documentclass[12pt]{../libellum}
 
+% pacotes para teste -----------------------------------------------------
 \usepackage{mwe}
 
+% informações para capa --------------------------------------------------
 \titulo{Variável Complexa}
 \autor{Ícaro Vidal Freire}
-\tipo{notas de aula}
+\tipo{notas de aula}% ------------------------------> deixar em minúsculas
 
 % início do documento ======================================================
 \begin{document} 
 %------------------------------------------------------------------------->>
-%
+% 
+  % comando para capa: 'proporção' e 'nome da figura'
   \capa{1.2}{escada}
 %
+  % gera sumário sem serifa 
   \sumario
 %
+  % Parte I, com modificação nas margens
   \parte{Primeira Parte!}
 %
+  % provisório (pacote mwe)
   \blinddocument
 %
+  % teste com nota marginal I
   \blindtext \marginpar{%
     \footnotesize 
     Esta é uma pequena margem. 
@@ -33,11 +40,24 @@
       proporção auréa.
     }
   }
-
+% 
   \parte{Teste com Parte}
-
+%
   \chapter{Testes Gerais}
-   \lettrine[lines=3]{\initial\color{azulUFRB} L}{orem ipsum} dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
+   \lettrine[lines=3]{\initial\color{azulUFRB} L}{orem ipsum} dolor sit 
+   amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint 
+   ad nisi Lorem pariatur mollit ex esse exercitation amet. 
+   Nisi anim cupidatat excepteur officia. 
+   Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate 
+   voluptate dolor minim nulla est proident. 
+   Nostrud officia pariatur ut officia. 
+   Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo 
+   officia dolor Lorem duis laboris cupidatat officia voluptate. 
+   Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis 
+   officia eiusmod. 
+   Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. 
+   Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa 
+   et culpa duis.
 
 \begin{figure}[!htbp]
   \centering
@@ -46,50 +66,97 @@
   \label{fig:montanha}
 \end{figure}
 
+% negrito (azulUFRB é a cor) sem serifa
 Seria real a imagem da Figura~\ref{fig:montanha}?
 \textbs{Palavras em Negrito e Sem Serifa}
 
+% itálico sem serifa 
 \textis{Palavras em Itálico sem Serifas}
 
- \begin{teorema}[(de Cauchy)]\label{teste}
-    Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
-      \[
-        f(z_0) = \frac{1}{2 \pi i} \oint_{\Gamma} \frac{f(z)}{z - z_0} \mathrm{d} z
-      \]
- \end{teorema}
+% comando para Teorema (com nome)
+\begin{teorema}[(de Cauchy)]\label{teste}
+  Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint 
+  cillum sint consectetur cupidatat.
+  \[
+    f(z_0) = 
+    \frac{1}{2 \pi i} \oint_{\Gamma} \frac{f(z)}{z - z_0} \mathrm{d} z
+  \]
+\end{teorema}
 
 O Teorema~\ref{teste} é legal
 
- Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
-  \section{Corolários}
+ Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit 
+ enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation 
+ amet. 
+ Nisi anim cupidatat excepteur officia. 
+ Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate 
+ voluptate dolor minim nulla est proident. 
+ Nostrud officia pariatur ut officia. 
+ Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo 
+ officia dolor Lorem duis laboris cupidatat officia voluptate. 
+ Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis 
+ officia eiusmod. 
+ Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. 
+ Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa 
+ et culpa duis.
 
-  \begin{cor}
-    Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
-  \end{cor}
+ \section{Corolários} %---------------------------------------------------
 
-  Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
+% comando para corolário
+\begin{cor}
+  Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint 
+  cillum sint consectetur cupidatat.
+\end{cor}
 
-  \begin{lema}
-    Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
-  \end{lema}
+Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum 
+sint consectetur cupidatat.
 
- \begin{teorema}
-   Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
- \end{teorema}
+% comando para Lema
+\begin{lema}
+  Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint 
+  cillum sint consectetur cupidatat.
+\end{lema}
 
+% comando para Teorema (sem nome)
+\begin{teorema}
+  Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint 
+  cillum sint consectetur cupidatat.
+\end{teorema}
+
+% comando para nota (SAIBA MAIS)
 Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.\nota{%
   Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
 }
-  \begin{definicao}
-    Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
-  \end{definicao}
 
-  Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
+% comando para Definição
+\begin{definicao}
+  Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint 
+  cillum sint consectetur cupidatat.
+\end{definicao}
 
-  Acesse o \link{https://www.latex-project.org/}{Projeto \LaTeX} ou Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
-  \begin{center}
-    \linkurl{https://www.latex-project.org/}
-  \end{center}
+Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim 
+labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. 
+Nisi anim cupidatat excepteur officia. 
+Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate 
+voluptate dolor minim nulla est proident. 
+Nostrud officia pariatur ut officia. 
+Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo 
+officia dolor Lorem duis laboris cupidatat officia voluptate. 
+Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis 
+officia eiusmod. 
+Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. 
+Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et 
+culpa duis.
+
+% comando para Link Externo
+Acesse o \link{https://www.latex-project.org/}{Projeto \LaTeX} ou Lorem 
+ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint 
+consectetur cupidatat.
+
+\begin{center}
+  \linkurl{https://www.latex-project.org/}
+\end{center}
+
 %-------------------------------------------------------------------------<<
 \end{document}
 %===========================================================================
